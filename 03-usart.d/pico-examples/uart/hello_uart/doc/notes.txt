@@ -1,0 +1,70 @@
+
+rpi pico rp2040 based board 07 Feb 2021 wa1tnr hello_uart.c notes
+
+Pinout and wiring
+
+The three upper left pins of the RP2040 Pico board are
+leveraged for the USART.
+
+Ground is the third pin.
+
+The 'TX' pin of the Raspberry Pi pin header goes to the
+pin on the end of the board, in the corner, not far from
+the ground just mentioned.
+
+The 'RX' pin of the Raspberry Pi pin header goes to the
+middle pin of these three pins on the Pico.
+
+So, a shared ground, and a TX/RX pair - that's the entire
+wiring, save for however the conversation is to be monitored
+(in this case on the Raspberry Pi).
+
+
+
+CP2104 USB to USART Bridge - connections
+
+In fact, no Raspberry Pi was ever used - instead, a PiUART
+(from Adafruit) was substituted - same pinout (and a bit of
+a ruse to describe it first as the Raspberry Pi).
+
+PiUART is CP2104 in a convenient carrier form factor, to mate
+with the main header pins of a Raspberry Pi.
+
+The PiUART (like the Raspberry Pi) has five pins in the
+corner: +5 +5 GND TX RX
+
+The +5 pins are ignored (left disconnected).  Only the
+last three are used (GND TX RX).
+
+On the Pico side, the colors are (from the corner):
+
+    Orange Brown Black
+
+Only Black makes real sense here, as it is for Ground.
+Orange and Brown were simply convenient to use, for this
+one-off.
+
+On the PiUART side, it's:
+
+    Black Orange Brown.
+
+So,   on one end,   Orange and Black  bracket  Brown.
+On the other end,   Brown  and Black  bracket  Orange.
+
+'Bracket' here just means that's the middle wire/pin. ;)
+
+More simply:
+
+    Orange in the middle on one end; and
+
+    Brown in the middle on the other end
+
+of the 6" jumper (Dupont style).
+
+Ground is black and forced as to position.  It's obvious.
+
+Program only does an output character stream, at the moment;
+provision for reading characters (from the keyboard) is not
+yet implemented, though planned.
+
+Sun Feb  7 18:59:13 UTC 2021
