@@ -140,6 +140,9 @@ void looper() {
     uart_putc(UART_ID, 'i');
     uart_putc(UART_ID, 'j');
     uart_putc(UART_ID, ' ');
+    // putchar() on /dev/ttyACM0 - USB
+    putchar('k'); putchar('l'); putchar('m');
+    uart_putc(UART_ID, ' ');
 
     tryme();
     // larger delay - empty loop volatile int won't be optimized out
@@ -152,7 +155,7 @@ void looper() {
 }
 
 int main() {
-    sleep_ms(2500);
+    sleep_ms(9500);
     // Set up our UART with the required speed.
     uart_init(UART_ID, BAUD_RATE);
 
@@ -174,7 +177,19 @@ int main() {
     uart_putc(UART_ID, 'B');
 
     // Send out a string, with CR/LF conversions
+    uart_putc(UART_ID, 'B');
+    uart_putc(UART_ID, 'B');
+    uart_putc(UART_ID, 'B');
+    uart_putc(UART_ID, 'B');
+    uart_putc(UART_ID, 'B');
+    uart_putc(UART_ID, 'B');
+    uart_putc(UART_ID, 'B');
+    uart_putc(UART_ID, 'B');
+    uart_putc(UART_ID, 'B');
+    uart_putc(UART_ID, 'B');
+    sleep_ms(19500);
     uart_puts(UART_ID, " Hello, UART!\n");
+    uart_puts(UART_ID, " project codenamed picoForth v0.0.0-a\n");
 
     // locally authored payload - a loop:
     while(1) {
