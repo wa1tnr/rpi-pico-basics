@@ -26,14 +26,16 @@ void _USB_read_tnr(void) {
     // backspace primitives
     // also Ctrl J and Ctrl K are useful.
     if (ch == '\010') {
-        uart_putc(UART_ID, '\010');
-        putchar('\010');
+        uart_putc(UART_ID, '\010'); putchar('\010');
+        return ;
     }
 
-    printf("%c", ch);
-    uart_putc(UART_ID, ch);
+    uart_putc(UART_ID, ch); putchar(ch);
+
+    // printf("%c", ch);
+    // uart_putc(UART_ID, ch);
     // putchar() on /dev/ttyACM0 - USB
-    putchar('X');
+    // putchar('X');
 }
 
 void tryme() {
@@ -69,8 +71,9 @@ int main() {
     uart_putc(UART_ID, 'B');
     uart_putc(UART_ID, 'B');
     sleep_ms(19500);
-    uart_puts(UART_ID, " Hello, UART!\n");
-    uart_puts(UART_ID, " project codenamed picoForth v0.0.0-a\n");
+    uart_puts(UART_ID, " Hello, UART!\r\n");
+    uart_puts(UART_ID, " project codenamed picoForth v0.0.0-b\r\n\r\n\r\n");
+    uart_puts(UART_ID, " nice keyboard mirroring UART and USB\r\n");
 
     while(1) {
         looper(); // called once and ran once ask asked ;)
