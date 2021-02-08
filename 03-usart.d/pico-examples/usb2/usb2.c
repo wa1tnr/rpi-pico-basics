@@ -28,7 +28,7 @@
 char ch;
 // uint8_t countah = 0 ;
 
-void _USART_read_tnr(void) {
+void _USB_read_tnr(void) {
     // getchar() is compiled in but no help.
     ch = getchar(); printf("%c", ch);
     // countah++;
@@ -117,7 +117,8 @@ J READ << cursor
         // ch = uart_getc(UART_ID); // had type originally
         // sleep_ms(90);
         // uart_read_blocking(UART_ID, ch, 1); // had type originally
-        _USART_read_tnr();
+        _USB_read_tnr();
+        // want to see about these output chars - might be handy to keep them active.
             uart_putc(UART_ID, 'Y');
             uart_putc(UART_ID, ch); // should not be the 'Q' loaded earlier
             uart_putc(UART_ID, 'Z');
