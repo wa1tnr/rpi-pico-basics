@@ -5,13 +5,17 @@
  */
 
 // wa1tnr
+// Mon Feb  8 02:44:30 UTC 2021
 // Sun Feb  7 18:46:13 UTC 2021
 
 #include <stdio.h>
 #include "pico/stdlib.h"
-// #include "hardware/uart.h"
 
 /// \tag::hello_uart[]
+
+// since this is a quick port from the uart version,
+// it won't be immediately corrected to remove
+// the uart stuff (which may still work for outbound).
 
 #define UART_ID uart0
 #define BAUD_RATE 115200
