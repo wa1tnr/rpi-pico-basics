@@ -8,6 +8,13 @@
 // Mon Feb  8 02:44:30 UTC 2021
 // Sun Feb  7 18:46:13 UTC 2021
 
+// whatever's going on, have both /dev/ttyACM0 and /dev/ttyUSB0 (CP2104 to the UART).
+
+// Both are doing something interesting at the same time.
+
+// getchar() working on USB interface.
+
+
 #include <stdio.h>
 #include "pico/stdlib.h"
 
