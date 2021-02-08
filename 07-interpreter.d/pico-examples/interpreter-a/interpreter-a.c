@@ -5,8 +5,8 @@
  */
 
 // wa1tnr
+// Mon Feb  8 05:05:46 UTC 2021
 // Mon Feb  8 02:44:30 UTC 2021
-// Sun Feb  7 18:46:13 UTC 2021
 
 #include <stdio.h>
 #include "pico/stdlib.h"
@@ -21,7 +21,16 @@
 
 char ch;
 void _USB_read_tnr(void) {
-    ch = getchar(); printf("%c", ch);
+    ch = getchar();
+
+    // backspace primitives
+    // also Ctrl J and Ctrl K are useful.
+    if (ch == '\010') {
+        uart_putc(UART_ID, '\010');
+        putchar('\010');
+    }
+
+    printf("%c", ch);
     uart_putc(UART_ID, ch);
     // putchar() on /dev/ttyACM0 - USB
     putchar('X');
